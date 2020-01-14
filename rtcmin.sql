@@ -1,0 +1,20 @@
+DROP DATABASE IF EXISTS `rtc`;
+CREATE DATABASE `rtc`;
+USE `rtc`;
+
+CREATE TABLE `user` (
+	`id` INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    `username` VARCHAR(100) NOT NULL UNIQUE,
+    `password` VARCHAR(100) NOT NULL,
+    `email` VARCHAR(100) NOT NULL UNIQUE,
+    `fullname` VARCHAR(100) NOT NULL,
+    `secretanswer` VARCHAR(200) NOT NULL,
+    `status` INT NOT NULL
+);
+
+CREATE TABLE `message` (
+	`id` INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    `time` VARCHAR(200) NOT NULL,
+    `fullname` VARCHAR(100) NOT NULL,
+    `msg` VARCHAR(500) NOT NULL
+);
