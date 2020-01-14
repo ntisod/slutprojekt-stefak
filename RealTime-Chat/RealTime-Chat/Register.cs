@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Data;
-using System.Drawing;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using System.Net.NetworkInformation;
@@ -8,56 +6,13 @@ using System.Net;
 
 namespace RealTime_Chat
 {
-    public partial class Register : Form
+    public partial class Register : Screen
     {
-        Random r = new Random();
-        bool dragging = false;
-        Point ilkkonum;
-        //Server info
-        public MySqlConnection db = new MySqlConnection("Server=localhost;Database=rtc;Uid=root;Pwd='';");
-        public MySqlCommand cmd = new MySqlCommand();
-        public MySqlDataAdapter adtr;
-        public MySqlDataReader dr;
-        public DataSet ds;
-
-
         public Register()
         {
             //winforms required
             InitializeComponent();
         }
-
-        #region MouseMove
-        private void panel1_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (dragging)
-            {
-                this.Left = e.X + this.Left - (ilkkonum.X);
-                this.Top = e.Y + this.Top - (ilkkonum.Y);
-            }
-        }
-
-        private void panel1_MouseDown(object sender, MouseEventArgs e)
-        {
-            dragging = true;
-            this.Cursor = Cursors.SizeAll;
-            ilkkonum = e.Location;
-        }
-
-        private void panel1_MouseUp(object sender, MouseEventArgs e)
-        {
-            dragging = false;
-            this.Cursor = Cursors.Default;
-        }
-
-        private void btnExit_Click(object sender, EventArgs e)
-        {
-            Login log = new Login();
-            log.Show();
-            this.Close();
-
-        }
-        #endregion
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
